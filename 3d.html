@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="jquery-2.1.1.js"></script>
+<style>
+#stage {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 50%;top: 50%;
+
+	margin-left: -50px;
+	margin-top: -50px;
+} 
+#stage div
+{
+width:100px;
+height:100px;
+position: absolute;
+left: 0;top: 0;
+
+}
+#q {background: blue;z-index: 5;
+	
+	backface-visibility: hidden;}
+#back {background: red;}
+
+.active {
+	-webkit-transition:-webkit-transform 2s linear;
+	-webkit-transform:rotateX(180deg);
+}
+.active_back {
+	-webkit-transition:-webkit-transform 2s linear;
+	-webkit-transform:rotateX(0deg);
+}
+#stage {
+ perspective:500px;
+}
+</style>
+</head>
+<body>
+
+<div id="stage">
+ <div id="q"></div>
+ <div id="back"></div>
+</div>
+<button></button>
+<script>
+	$(function(){
+			$("#stage").hover(function(){
+				$("#stage div").removeClass();
+				$("#stage div").addClass("active");
+			},
+			function(){
+				$("#stage div").removeClass();
+				$("#stage div").addClass("active_back");
+			})
+		})
+</script>
+</body>
+</html>
